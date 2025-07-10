@@ -33,8 +33,17 @@
 
 package katas.rank.kyu6;
 
+import java.util.stream.IntStream;
+
 public class MultiplesSum {
+	
 	public static int solution(int number) {
+		return IntStream.range(0, number)
+				        .filter(i -> i % 3 == 0 || i % 5 == 0)
+				        .sum();
+	}
+	
+	public static int solution2(int number) {
 		int sumResult = 0;
 		for (int i = 0; i < number; i++) {
 			
