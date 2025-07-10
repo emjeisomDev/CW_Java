@@ -12,11 +12,14 @@
 
 package main;
 
+import katas.rank.kyu6.MultiplesSum;
+
 public class Main {
 	
 	public static void main(String[] args) {
 		
-
+		int number = 10;
+		System.out.println("The result of the sum: " + MultiplesSum.solution(number) + ".");
 	}
 	
 }
