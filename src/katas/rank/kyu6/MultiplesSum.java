@@ -29,6 +29,7 @@
  * 
  * @param numero O limite superior (exclusivo) abaixo do qual será calculada a soma dos múltiplos de 3 ou 5.
  * @return A soma de todos os múltiplos de 3 ou 5 abaixo do número fornecido.
+ * https://www.codewars.com/kata/514b92a657cdc65150000006/train/java
  */
 
 package katas.rank.kyu6;

@@ -12,14 +12,17 @@
 
 package main;
 
-import katas.rank.kyu6.MultiplesSum;
+import katas.rank.kyu7.StringEndsWith;
 
 public class Main {
 	
 	public static void main(String[] args) {
 		
-		int number = 10;
-		System.out.println("The result of the sum: " + MultiplesSum.solution(number) + ".");
+		String str = "abcdefghij";
+		String ending = "ijh";
+		System.out.println(str + " * " + ending + " = " + StringEndsWith.solution(str, ending));
+		
+		
 	}
 	
 }
