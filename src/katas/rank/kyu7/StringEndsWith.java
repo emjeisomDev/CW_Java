@@ -32,8 +32,24 @@
 
 package katas.rank.kyu7;
 
+import java.util.stream.IntStream;
+
 public class StringEndsWith {
+	
+	
 	public static boolean solution(String str, String ending) {
+		
+	    if(ending.length() > str.length()){
+	        return false;
+	      }
+		
+	    int endingStartIndex  = str.length() - ending.length();
+		return IntStream
+				.range(endingStartIndex , str.length())
+				.allMatch(i -> str.charAt(i) == ending.charAt(i  - endingStartIndex ));
+	}
+	
+	public static boolean solution2(String str, String ending) {
 		int gapLength = str.length() - ending.length();
 		char[] newStr = str.toCharArray();
 		char[] newEnding = ending.toCharArray();

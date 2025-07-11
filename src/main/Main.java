@@ -18,8 +18,8 @@ public class Main {
 	
 	public static void main(String[] args) {
 		
-		String str = "abcdefghij";
-		String ending = "ijh";
+		String str = "abc";
+		String ending = "bc";
 		System.out.println(str + " * " + ending + " = " + StringEndsWith.solution(str, ending));
 		
 		
