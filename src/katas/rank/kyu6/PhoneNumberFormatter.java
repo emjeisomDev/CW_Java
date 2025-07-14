@@ -27,6 +27,9 @@
 
 package katas.rank.kyu6;
 
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 public class PhoneNumberFormatter {
 	
     /**
@@ -37,6 +40,11 @@ public class PhoneNumberFormatter {
      * @return Uma string representando o número de telefone no formato "(xxx) xxx-xxxx".
      */
 	public static String createPhoneNumber(int[] numbers) {
+		var phone = IntStream.of(numbers).boxed().toArray();
+		return String.format("(%d%d%d) %d%d%d-%d%d%d%d", phone);
+	}
+	
+	public static String createPhoneNumber2(int[] numbers) {
 		
 		StringBuilder phone = new StringBuilder();
 		phone.append("(");
