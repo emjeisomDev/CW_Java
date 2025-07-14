@@ -12,15 +12,18 @@
 
 package main;
 
-import katas.rank.kyu7.StringEndsWith;
+import katas.rank.kyu6.PhoneNumberFormatter;
 
 public class Main {
 	
 	public static void main(String[] args) {
 		
-		String str = "abc";
-		String ending = "bc";
-		System.out.println(str + " * " + ending + " = " + StringEndsWith.solution(str, ending));
+		int[] numbers = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
+		System.out.println("Phone number is " + PhoneNumberFormatter.createPhoneNumber(numbers));
+		
+//		String str = "abc";
+//		String ending = "bc";
+//		System.out.println(str + " * " + ending + " = " + StringEndsWith.solution(str, ending));
 		
 		
 	}
