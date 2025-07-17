@@ -23,11 +23,11 @@
  * 
  * @param numeros Um array de 10 inteiros representando os dígitos do número de telefone.
  * @return Uma string formatada do número de telefone no formato "(xxx) xxx-xxxx".
+ * https://www.codewars.com/kata/525f50e3b73515a6db000b83/
  */
 
 package katas.rank.kyu6;
 
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class PhoneNumberFormatter {
