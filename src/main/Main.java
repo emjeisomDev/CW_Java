@@ -12,14 +12,19 @@
 
 package main;
 
-import katas.rank.kyu6.PhoneNumberFormatter;
+import katas.rank.kyu6.PangramChecker;
 
 public class Main {
 	
 	public static void main(String[] args) {
 		
-		int[] numbers = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
-		System.out.println("Phone number is " + PhoneNumberFormatter.createPhoneNumber(numbers));
+		String sentence = "ABCD45EFGH,IJK,LMNOPQR56STUVW3XYZ";
+		System.out.println("Is the string \n\t" + sentence + "\na pangram ?");
+		System.out.println("\nResponse: " + PangramChecker.check(sentence) + ".");
+		
+		
+//		int[] numbers = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
+//		System.out.println("Phone number is " + PhoneNumberFormatter.createPhoneNumber(numbers));
 		
 //		String str = "abc";
 //		String ending = "bc";
