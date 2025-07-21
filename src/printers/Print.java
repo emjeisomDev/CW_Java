@@ -26,7 +26,7 @@ public class Print {
 	        String result = IntStream.range(0, len)
 	            .mapToObj(i -> String.valueOf(Array.get(arr, i)))
 	            .collect(Collectors.joining(", ", "{ ", " }"));
-	        System.out.println(result);
+	        System.out.print(result);
 	        
 	
 	    } else if (dimension == 2) {
@@ -38,7 +38,7 @@ public class Print {
 		            String linha = IntStream.range(0, cols)
 		                .mapToObj(j -> String.valueOf(Array.get(row, j)))
 		                .collect(Collectors.joining(", ", "{ ", " }"));
-		            System.out.println(linha);
+		            System.out.print(linha);
 	        	});
 	    }
 	}
@@ -51,7 +51,7 @@ public class Print {
 	                         .toList()
 	        ) + 
 	    " }";
-	    System.out.println(result);
+	    System.out.print(result);
 	}
 	
 	public static void Map(Map<?, ?> map) {
