@@ -42,14 +42,28 @@
 
 package katas.rank.kyu6;
 
+import java.util.stream.Stream;
+
 public class Xbonacci {
 	public static double[] tribonacci(double[] s, int n) {
-		
-		
-		return new double[] {};
+		return Stream.iterate(s, fib -> new double[] {
+										fib[1], fib[2], fib[0] + fib[1] +  fib[2] } 
+							  )
+				.mapToDouble(fib -> fib[0])
+				.limit(n)
+				.toArray();
 	}
 	
+	
 	public static double[] fibonacci(double[] s, int n) {
+		return Stream.iterate(s, fib -> new double[] {fib[1], fib[0] + fib[1] } )
+							.mapToDouble(fib -> fib[0])
+							.limit(n)
+							.toArray();
+		
+	}
+	
+	public static double[] fibonacci_2(double[] s, int n) {
 		
 		if(s.length != 2) return new double[] {};
 		

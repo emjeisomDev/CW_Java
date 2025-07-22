@@ -21,7 +21,16 @@ public class Main {
 	public static void main(String[] args) {
 		
 		int n = 10;
-		double[] s = new double[] {0, 1};
+		double[] s = new double[] {1, 1,1};
+		System.out.print("The Tribonacci sum starting with \n\t");
+		Print.Array(s);
+		System.out.print(" \nis equal to \n\t");
+		Print.Array(Xbonacci.tribonacci(s, n));
+		
+		System.out.println("\n\n-----------------------------------------\n");
+		
+		n = 10;
+		s = new double[] {0, 1};
 		System.out.print("The Fibonacci sum starting with \n\t");
 		Print.Array(s);
 		System.out.print(" \nis equal to \n\t");
