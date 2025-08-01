@@ -20,10 +20,10 @@ public class Main {
 	public static void main(String[] args) {
 		
 		
-//		String roman = "CMXCIX";
-//		System.out.print("\n\tThe roman number '" + roman + "' converted to cardinal is '" + RomanNumerals.fromRoman(roman) + "'.");
-//		System.out.println("\n\t----------------------------------------------------------");
-		int n = 3549;
+		String roman = "iv";
+		System.out.print("\n\tThe roman number '" + roman.toUpperCase() + "' converted to cardinal is '" + RomanNumerals.fromRoman(roman.toUpperCase()) + "'.");
+		System.out.println("\n\t----------------------------------------------------------");
+		int n = 9;
 		System.out.print("\tThe cardinal number '" + n + "' converted to roman is '" + RomanNumerals.toRoman(n) + "'.");
 
 //		int n = 10;

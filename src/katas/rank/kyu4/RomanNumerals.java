@@ -90,7 +90,7 @@
  * @param roman A string do número romano a ser convertida para um inteiro.
  * @return O valor inteiro correspondente ao número romano ou o número romano correspondente ao valor 
  * inteiro.
- * https://www.codewars.com/kata/51b66044bce5799a7f000003/train/csharp
+ * https://www.codewars.com/kata/51b66044bce5799a7f000003/train/java
  */
 /**
  * public static String toRoman(int n)
@@ -107,20 +107,22 @@
 
 package katas.rank.kyu4;
 
-import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.LinkedHashMap;
+
 
 public class RomanNumerals {
+	
+	final static LinkedHashMap<String, Integer> romanRef = romanRef();
 	
 	public static String toRoman(int n) {
 		
 		StringBuilder romanNumber = new StringBuilder();
-		var romanRef = romanRef();
 		
-		for (String key: romanRef.keySet()) {
-			while (n >= romanRef.get(key)) {
-				n-=romanRef.get(key);
-				romanNumber.append(key);
+		for (Map.Entry<String, Integer> key : romanRef.entrySet()) {
+			while (n >= key.getValue()) {
+				n-=key.getValue();
+				romanNumber.append(key.getKey());
 			}
 		}
 		return romanNumber.toString();
@@ -129,45 +131,43 @@ public class RomanNumerals {
 	
 	public static int fromRoman(String romanNumeral) {
 		
-		long result = 0;
-		var decNum = romanNumeral.chars()
-				                 .mapToLong(r -> romanRef().get(String.valueOf((char) r)))
-				                 .boxed()
-				                 .mapToLong(Long::longValue)
-				                 .toArray();
-		
-		if (decNum.length >= 1) { result = decNum[decNum.length - 1]; }
-		
-		for (int i = 0; i < (decNum.length - 1); i++) {
-            if (decNum[i] >= decNum[i + 1])
-            {
-                result += decNum[i];
-            }
-            else
-            {
-                result -= decNum[i];
-            }
+		int result = 0;
+		for (int i = 0; i < romanNumeral.length(); i++) {
+			int currentValue = romanRef.get(String.valueOf(romanNumeral.charAt(i)));
+			
+			if (i + 1 < romanNumeral.length()) {
+				int nextValue = romanRef.get(String.valueOf(romanNumeral.charAt(i + 1)));
+	            if (currentValue < nextValue) {
+	                result -= currentValue;
+	            } else {
+	                result += currentValue;
+	            }
+			} else {
+				result += currentValue;
+			}
 		}
 		
-		return (int) result;
+		return result;
 	}
 	
-	private static Map<String, Integer> romanRef() {
-	    return new LinkedHashMap<>(Map.ofEntries(
-	        Map.entry("M",  1000),
-	        Map.entry("CM", 900),
-	        Map.entry("D",  500),
-	        Map.entry("CD", 400),
-	        Map.entry("C",  100),
-	        Map.entry("XC", 90),
-	        Map.entry("L",  50),
-	        Map.entry("XL", 40),
-	        Map.entry("X",  10),
-	        Map.entry("IX", 9),
-	        Map.entry("V",  5),
-	        Map.entry("IV", 4),
-	        Map.entry("I",  1)
-	    ));
+	private static LinkedHashMap<String, Integer> romanRef(){
+		return new LinkedHashMap<>() {
+			{
+				put("M",  1000);
+				put("CM",  900);
+				put("D",   500);
+				put("CD",  400);
+				put("C",   100);
+				put("XC",   90);
+				put("L",    50);
+				put("XL",   40);
+				put("X",    10);
+				put("IX",    9);
+				put("V",     5);
+				put("IV",    4);
+				put("I",     1);
+			}
+		}; 
 	}
 	
 	
