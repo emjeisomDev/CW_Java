@@ -13,28 +13,34 @@
 
 package main;
 
-import katas.rank.kyu6.Xbonacci;
-import printers.Print;
+import katas.rank.kyu4.RomanNumerals;
 
 public class Main {
 	
 	public static void main(String[] args) {
 		
-		int n = 10;
-		double[] s = new double[] {1, 1,1};
-		System.out.print("The Tribonacci sum starting with \n\t");
-		Print.Array(s);
-		System.out.print(" \nis equal to \n\t");
-		Print.Array(Xbonacci.tribonacci(s, n));
 		
-		System.out.println("\n\n-----------------------------------------\n");
-		
-		n = 10;
-		s = new double[] {0, 1};
-		System.out.print("The Fibonacci sum starting with \n\t");
-		Print.Array(s);
-		System.out.print(" \nis equal to \n\t");
-		Print.Array(Xbonacci.fibonacci(s, n));
+//		String roman = "CMXCIX";
+//		System.out.print("\n\tThe roman number '" + roman + "' converted to cardinal is '" + RomanNumerals.fromRoman(roman) + "'.");
+//		System.out.println("\n\t----------------------------------------------------------");
+		int n = 3549;
+		System.out.print("\tThe cardinal number '" + n + "' converted to roman is '" + RomanNumerals.toRoman(n) + "'.");
+
+//		int n = 10;
+//		double[] s = new double[] {1, 1,1};
+//		System.out.print("The Tribonacci sum starting with \n\t");
+//		Print.Array(s);
+//		System.out.print(" \nis equal to \n\t");
+//		Print.Array(Xbonacci.tribonacci(s, n));
+//		
+//		System.out.println("\n\n-----------------------------------------\n");
+//		
+//		n = 10;
+//		s = new double[] {0, 1};
+//		System.out.print("The Fibonacci sum starting with \n\t");
+//		Print.Array(s);
+//		System.out.print(" \nis equal to \n\t");
+//		Print.Array(Xbonacci.fibonacci(s, n));
 		
 //		String sentence = "ABCD45EFGH,IJK,LMNOPQR56STUVW3XYZ";
 //		System.out.println("Is the string \n\t" + sentence + "\na pangram ?");
