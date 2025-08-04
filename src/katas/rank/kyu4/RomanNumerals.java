@@ -107,47 +107,37 @@
 
 package katas.rank.kyu4;
 
-import java.util.Map;
 import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.stream.IntStream;
 
 
 public class RomanNumerals {
 	
-	final static LinkedHashMap<String, Integer> romanRef = romanRef();
+	private final static LinkedHashMap<String, Integer> romanRef = romanRef();
 	
 	public static String toRoman(int n) {
 		
-		StringBuilder romanNumber = new StringBuilder();
+		StringBuilder result = new StringBuilder();
 		
-		for (Map.Entry<String, Integer> key : romanRef.entrySet()) {
-			while (n >= key.getValue()) {
-				n-=key.getValue();
-				romanNumber.append(key.getKey());
+		for (Map.Entry<String, Integer> symbolValue : romanRef.entrySet()) {
+			while (n >= symbolValue.getValue()) {
+				n-=symbolValue.getValue();
+				result.append(symbolValue.getKey());
 			}
 		}
-		return romanNumber.toString();
+		return result.toString();
 	}
 	
-	
 	public static int fromRoman(String romanNumeral) {
-		
-		int result = 0;
-		for (int i = 0; i < romanNumeral.length(); i++) {
-			int currentValue = romanRef.get(String.valueOf(romanNumeral.charAt(i)));
-			
-			if (i + 1 < romanNumeral.length()) {
-				int nextValue = romanRef.get(String.valueOf(romanNumeral.charAt(i + 1)));
-	            if (currentValue < nextValue) {
-	                result -= currentValue;
-	            } else {
-	                result += currentValue;
-	            }
-			} else {
-				result += currentValue;
-			}
-		}
-		
-		return result;
+		var decNum = romanNumeral.chars().mapToObj(r -> romanRef.get(String.valueOf((char) r))).toList();
+		return IntStream.range(0, decNum.size() - 1)
+						.map(i -> {
+										int curr = decNum.get(i);
+										int next = decNum.get(i+1);
+										return curr >= next ? curr : -curr;
+										})
+						.sum() + decNum.getLast();
 	}
 	
 	private static LinkedHashMap<String, Integer> romanRef(){
@@ -168,7 +158,6 @@ public class RomanNumerals {
 				put("I",     1);
 			}
 		}; 
+	
 	}
-	
-	
 }
